@@ -7,18 +7,18 @@ var currentTime = moment().format("HH");
 
 //Color Coding the Time Blocks
 for (i = 9; i <= 17; i++){
-    var selectorString = "#" + [i]
+    var selectedString = "#" + [i]
     
-    var selectedHour = $(selectorString).attr("timeValue");
+    var selectedHour = $(selectedString).attr("timeValue");
     
     if (selectedHour < currentTime){
-        $(selectorString).removeClass("future");
-        $(selectorString).removeClass("present");
-        $(selectorString).addClass("past");
+        $(selectedString).removeClass("future");
+        $(selectedString).removeClass("present");
+        $(selectedString).addClass("past");
     };
     if(currentTime === selectedHour){
-        $(selectorString).removeClass("future");
-        $(selectorString).addClass("present");
+        $(selectedString).removeClass("future");
+        $(selectedString).addClass("present");
     }
     $("button").on("click", function(){
         var quest = $(this).siblings(".toDo").val()
@@ -26,6 +26,6 @@ for (i = 9; i <= 17; i++){
         
         localStorage.setItem(time, quest);
     });
-    $(selectorString).text(localStorage.getItem(i));
+    $(selectedString).text(localStorage.getItem(i));
     
 }
